@@ -10,7 +10,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Um user pode ter várias memórias
 model User {
-  id   String @id @default(uuid())
-  name String
+  id        String   @id @default(uuid())
+  githubId  Int      @unique
+  name      String
+  login     String
+  avatarUrl String
+  Memories  Memory[]
+}
+
+// Toda memória pertence a Um user
+model Memory {
+  id        String   @id @default(uuid())
+  coverUrl  String //imagem/memória
+  content   String // descrição
+  isPublic  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 }

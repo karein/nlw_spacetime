@@ -14,7 +14,7 @@
 9. instalar fastify
 10. add 1° rota get com fastify em server js retornando um texto hello
 11. installar ESLint
-12. installar @rocketseat/eslint-config e configurar arquivo .eslintrc extendendo as configurações dessa lib (opcional)
+12. installar @rocketseat/eslint-config e configurar arquivo .eslintrc extendendo as configurações dessa lib
 13. add script "lint" no package.json para formatar todos os arquivos de uma vez com eslint e rodar 'npm run lint'
 14. instalar 'prisma'
 15. iniciar banco prisma com o commando 'npx prisma init --datasource-provider SQLite'
@@ -30,7 +30,7 @@
   <br><br/>
 - npm i fastify
 - npm i eslint -D
-- npm i @rocketseat/eslint-config -D (opcional)
+- npm i @rocketseat/eslint-config -D
 - npm i prisma -D
 - npm i @prisma/client
 
@@ -53,7 +53,6 @@
 
 - @rocketseat/eslint-config:  
   Formatação das configurações rockeseat.  
-  Uso opcional.  
   Após instalar a lib, criar o arquivo eslintrc.json extendendo(extends) a biblioteca e especificando o 'node' pois esse projeto é node.
 
 - npm run lint:  
@@ -86,3 +85,23 @@
   - [] ESLint
   - [] Prisma
   - [] Configurar schema.prisma
+
+# Aula 2 - Avançando o back-end e Front-end
+
+## Libs
+
+- zod
+- @fastify/cors
+
+## commands
+
+- npm i zod
+- npm i @fastify/cors
+
+## Notes
+
+- 'app.register' serve para registrar um arquivo de rotas separados
+- 'coerce' converte o valor(que seja comparável a 'Falsy/Truthy') para 'boolean' (ex: o valor pode chegar como 0 ou 1, e será comvertido para false/true)
+- 'CORS' é uma técnica de segurança que existe no back-end para determinar quais urls/endereços vão poder acessar a API.
+  - Caso o 'origin' seja 'true', todas as urls front-end poderão acessar o backend
+  - Ou pode receber um arrar com os endereços(local, desenvolvimento, produção etc). ex: 'origin: ['http://localhost:3333', 'https://production.example.com']'
