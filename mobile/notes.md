@@ -105,3 +105,35 @@
   1. importar 'styled' do 'nativewind'
   2. criar uma constante recebendo a função 'styled' passando o componente/svg como argumento `const StyledStripes = styled(Stripes)`
   3. Usar essa const como componente no lugar do svg '<StyledStripes/>'
+
+# Aula 03 - Integrando UI com bibliotecas
+
+## Libs
+
+- expo-auth-session
+- expo-crypto
+- axios
+- expo-secure-store
+- expo-router
+- react-native-safe-area-context
+- react-native-screens
+- expo-linking
+- expo-constants
+- expo-status-bar
+
+## Commands
+
+- npx expo install expo-auth-session expo-crypto
+- npm i axios
+- npx expo install expo-secure-store
+- npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
+
+## Notes
+
+- Auth
+
+  - Registar um 'new OAuth application' para o mobiles também, como foi feito na web
+  - O 'Authorization callback URL' deve ser definido de acordo aom a documentação
+    - https://docs.expo.dev/guides/authentication/#github
+
+- expo-secure-store é uma lib para se trabalhar com storage de informações mais sensíveis

@@ -77,3 +77,81 @@
 - Quando se salva uma imagem icon.png dentro da pasta app, o next automaticamente vai usar essa imagem como icone dá página.
 
 - next/image é um pacote do Next; o component <Image/> é o mesmo que a tag <img> do html, porém ele faz uma otimização automática da imagem, para um carregamento mais rápido
+
+# Aula 03 - Integrando UI com bibliotecas
+
+## Libs
+
+- axios
+- jwt-decode
+
+## Commands
+
+- npm i axios
+- npm i jwt-decode
+
+## Ferramentas úteis
+
+- https://excalidraw.com
+
+## Notes
+
+- Fluxo de autenticação
+
+  - 'Oauth' permite fazer login em uma aplicação, usando uma conta existente em outra aplicação.
+
+  - Web
+
+    1. User clica no link 'fazer login' na aplicação web
+    2. User é redirecionado para a página de login do github
+    3. pagina de login chama o github/faz autenticação pra saber se o user é válido
+    4. github devolve/redireciona o user para o site('cápsula do tempo'). Nesse redirecionamento github também envia um 'código' na url que pode ser trocado por um 'access token'.
+
+    - access token permite identificar um user no github e buscar informações desse usuário. Permite identificar o usuário e fazer chamadas para o  
+      github como se fosse aquele usuário
+
+    5. Pegar o código e enviar para o back-end
+    6. back-end envia o código para a api do github, buscando as informações do usuário
+    7. github devolve uma access token
+    8. com a access token, fazer requisição para a rota /users do github
+    9. github devolve as informações do usuário
+    10. BackEnd salva as informações do usuario no banco de dados
+
+  - Mobile
+    O usuário não será redirecionado para a página de login do github. A aplicação usará a API do RN de 'webBrowser' que permite abrir o navegador encima da aplicação e não abrir o navegador do celular
+
+    1. Mobile abreo WebBroser com a tela de login do github
+    2. Tela de login requisita validação do github
+    3. Validação retorna o código para a aplicação
+    4. Código é enviado para o back-end e faz o mesmo processo descrito para a Web
+
+  - Config Oauth Github
+    1. logar no github
+    2. ir no menu (setinha ao lado do perfil no canto superior direito da tela)
+    3. clicar em Settings
+    4. Developers settings (final do menu lateral esquerdo)
+    5. Oauth Apps -> New Oauth App
+    6. Preencher 'Application name', 'Homepage URL', 'Authorization callback URL'
+       - EX:
+         - Application name = spacetime (DEV),
+         - Homepage URL = http://localhost:3000,
+         - Authorization callback URL = http://localhost:3000/api/auth/callbak
+           - nome da rota que será criada para o front-end
+    7. Clicar em Register (que vai devolver um Client Id e um Client secret)
+       - Client ID -> deve ser adicionado no .env.local do front e no .env do back
+       - Client secret -> deve ser adicionado apenas no .env do back
+
+- .env.local é a forma do Next declarar variáveis ambiente e para uma variável ser exposta para o front, tem que iniciar com
+  `NEXT_PUBLIC_<resto-do-nome>`
+
+- Cookies
+
+  - 'request.url' é a url da aplicação
+  - 'new URL('/', request.url)' redireciona o user para a rota '/' ou rota raiz
+  - 'Path=/' significa que o cookie vai esta disponível para toda a aplicação
+  - 'max-age' é o tanto de tempo que o cookie vai durar e recebe um valor em segundos
+  - 60(min) \* 60(hrs) \* 24(1 dia) \* 30(trinta dias)
+
+- Por adrão o <Image/> do next não carrega imagens externas de qualquer endereço
+  - Para carregar imagens externas
+    - No arquivo next.config add a propriedade images em nextConfig passando quais domínios('domains') a aplicação permite carregar imagens

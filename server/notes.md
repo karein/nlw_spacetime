@@ -105,3 +105,40 @@
 - 'CORS' é uma técnica de segurança que existe no back-end para determinar quais urls/endereços vão poder acessar a API.
   - Caso o 'origin' seja 'true', todas as urls front-end poderão acessar o backend
   - Ou pode receber um arrar com os endereços(local, desenvolvimento, produção etc). ex: 'origin: ['http://localhost:3333', 'https://production.example.com']'
+
+# Aula 03 - Integrando UI com bibliotecas
+
+## Libs
+
+- dotenv
+- axios
+- @fastify/jwt
+
+## Commands
+
+- npm i dotenv -D
+- npm i axios
+- npm i @fastify/jwt
+
+## Ferramentas úteis
+
+-
+
+## Notes
+
+- JWT (Json Web Token)
+  Token criado pelo backend enviado para o frontend, para que o front possa usar esse token nas requisições feitas para o back para se identificar os usuários logados.  
+  O token será armazenado nos kookies ou na memória para usar sempre que for fazer uma requisição para o back  
+  Não colocar informações sensiveis no token pois ele não é criptografado,é apenas assinado, então qualquer pessoa pode ver o conteúdo dele.
+
+  'sub' (diminutivo para subject), é á qual usuário pertence esse token.
+
+- Rotas autenticadas
+
+  - auth.d.ts -> a configuração desse arquivo pode ser encontrada ná pŕopria documentação (https://github.com/fastify/fastify-jwt) ao buscar por 'TypeScript'
+
+  - Autenticas todas as rotas sem repetir uma função  
+    Para não ter que adicionar 'await request.jwtVerify()' no 'handler'/corpo da função de todas as requisições, se pode adicionar a função
+    addHook('preHandler') que vai executar uma função antes do handler de cada uma das rotas.
+
+- host: '0.0.0.0' -> é necessário para funcionar no mobile
