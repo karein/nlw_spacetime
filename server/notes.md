@@ -120,10 +120,6 @@
 - npm i axios
 - npm i @fastify/jwt
 
-## Ferramentas úteis
-
--
-
 ## Notes
 
 - JWT (Json Web Token)
@@ -142,3 +138,30 @@
     addHook('preHandler') que vai executar uma função antes do handler de cada uma das rotas.
 
 - host: '0.0.0.0' -> é necessário para funcionar no mobile
+
+# Aula 04 - Integrando os projetos web e mobile
+
+## Libs
+
+- @fastify/multipart
+- @fastify/static
+
+## Commands
+
+- npm i @fastify/multipart
+- npm i @fastify/static
+
+## Notes
+
+- feature de 'stream' é a possibilidade de enviar um arquivo do frontend para o backend aos poucos, e aos poucos o backend ir fazendo a
+  tratativa desse arquivo, por exemplo salvar esse arquivo no disco para ele ser recuperado depois
+- @fatify/multipart -> habilita o fastify a entender 'multipart form data' que é uma forma de envio de informações do frontend para o backend,
+  onde é permitido o envio de qualquer tipo de dado, porém não é tão simples quanto o JSON
+- resolve() -> padroniza o caminho para que todos os sistemas operacionais entendam. ex: 'c://paht/to/file', 'c:\\path\to\file', C:/\, "c:/\\"
+- pump()
+  - 'pipeline' permite aguardar uma string/processo de upload finalizar. Se consegue verificar quando um processo chegou até o final.
+  - No node, a maioria das funções não usam Promisses. 'promisify' transforma algumas funções mais antigas do node que ainda não tinha suporte
+    a 'Promise' em Promises
+- 'request.protocol' retorna o protocolo(http, https)
+- A forma de upload e armazenamento no disco feita nesse projeto NÃO é a mais indicada para a MAIORIA dos casos. Na maioria dos casos o ideal
+  seria salvar os arquivos em serviço específico para upload de arquivos (ex: Amazom S3, Google GCS, Cloudflare R2)

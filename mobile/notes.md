@@ -137,3 +137,18 @@
     - https://docs.expo.dev/guides/authentication/#github
 
 - expo-secure-store é uma lib para se trabalhar com storage de informações mais sensíveis
+
+# Aula 04 - Integrando os projetos web e mobile
+
+## Libs
+
+- d
+
+## Commands
+
+-
+
+## Notes
+
+- !!token converte a token para booblean. a token é uma string, se o token existir, converte para true
+- redirect={} -> redireciona o user para a próx. rota automaticamente caso o valor que ele recebe seja true
