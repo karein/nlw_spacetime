@@ -140,15 +140,19 @@
 
 # Aula 04 - Integrando os projetos web e mobile
 
-## Libs
-
-- d
-
-## Commands
-
--
-
 ## Notes
 
 - !!token converte a token para booblean. a token é uma string, se o token existir, converte para true
 - redirect={} -> redireciona o user para a próx. rota automaticamente caso o valor que ele recebe seja true
+
+# Aula 05
+
+## Libs
+
+- dayjs
+- expo-image-picker
+
+## Commands
+
+- npm install dayjs
+- npm i expo-image-picker

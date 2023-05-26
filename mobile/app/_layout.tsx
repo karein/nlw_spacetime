@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
 import { styled } from 'nativewind'
 import { StatusBar } from 'expo-status-bar'
-import { ImageBackground } from 'react-native'
-import { SplashScreen, Stack } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
+import { ImageBackground } from 'react-native'
+import { useEffect, useState } from 'react'
+import { SplashScreen, Stack } from 'expo-router'
 import {
   useFonts,
   Roboto_400Regular,
@@ -50,11 +50,12 @@ export default function Layout() {
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: 'transparent' },
+          animation: 'fade',
         }}
       >
         <Stack.Screen name="index" redirect={isUserAuthenticated} />
-        <Stack.Screen name="new" />
         <Stack.Screen name="memories" />
+        <Stack.Screen name="new" />
       </Stack>
     </ImageBackground>
   )

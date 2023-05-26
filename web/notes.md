@@ -161,16 +161,19 @@
 ## Libs
 
 - @tailwindcss/forms
+- @types/js-cookie
 
 ## Commands
 
 - npm install -D @tailwindcss/forms
+- npm i -D @types/js-cookie
 
 ## Notes
 
 - Layout é aquilo que não muda entre as páginas
 - Sempre que se faz uma navegação dentro da aplicação é preferível usar o <Link/> ao invés do <a>
-- Elementos nativos do html pode ser difíceis de estilizar, e mudam dependendo do browser. Essa lib substitui os elementos padrão, fazendo os
+- Elementos nativos do html pode ser difíceis de estilizar, e mudam dependendo do browser. Essa lib(@tailwindcss/forms) substitui os elementos
+  padrão, fazendo os
   elemento html receberem todas as estilizações normalmente
 - Middleware de autenticação
   - Middleware é quando de se quer interceptar o acesso do usuário a uma determinada rota ou endereço
@@ -178,3 +181,16 @@
     apenas na camada backend(next) da aplicação
   - Ao chamar a url de autenticação '[...]github.com/login/oauth/a[...]' e essa rota devolve o user para 'api/auth/callback', logo, como ao
     terminar a autenticação no middleware e criar um novo cookie, este também vai poder ser acessado na página route.ts da 'api/auth/callback'
+
+# Aula 05
+
+## Libs
+
+- js-cookie
+- dayjs
+
+## Commands
+
+- npm install js-cookie
+- npm install -D @types/js-cookie
+- npm install dayjs
